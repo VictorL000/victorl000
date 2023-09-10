@@ -1,5 +1,7 @@
+import { inAnims, indexIn, indexOut, pageLoad } from "./anim.js";
+
 const route = (event) => {
-  event.preventDefault(); 
+  // event.preventDefault(); 
   window.history.pushState({}, '', event.target.href);
   handleLocation();
 };
@@ -17,9 +19,11 @@ const handleLocation = async () => {
   const route = routes[path] ? routes[path] : routes[404];
   const html = await fetch(route).then((data) => data.text());
   document.getElementById("content").innerHTML = html;
+  inAnims[path]();
 }
 
-// window.onpopstate = handleLocation;
-// window.route = route;
+window.onpopstate = handleLocation;
+window.route = route;
 
-// handleLocation();
+handleLocation();
+pageLoad();
