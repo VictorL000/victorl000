@@ -8,23 +8,30 @@
     <title>pls</title>
   </head>
   <body>
-    <div class="content">
-      <div class="header py-5 flex justify-between">
-        <a class="text-3xl" href="index.html">Home</a>
-        <a class="text-3xl" href="about.html">About</a>
-        <a class="text-3xl" href="projects.html">Projects</a>
-        <a class="text-3xl" href="contact.html">Contact</a>
+    <div class="overlay"></div>
+    <div class="noise"></div>
+    <div id="content">
+      <div class="header">
+        <a class="text-3xl" href="/" onclick="route(event)">Home</a>
+        <a class="text-3xl" href="about.html" onclick="route(event)">About</a>
+        <a class="text-3xl" href="projects.html" onclick="route(event)">Projects</a>
+        <a class="text-3xl" href="contact.html" onclick="route(event)">Contact</a>
       </div>
       <div class="headline absolute">
-        <h1 class="text-9xl">Hi,</h1>
+        <h1 class="text-8xl">Hi,</h1>
         <h2 class="text-7xl">I'm Victor.</h2>
-        <h3 class="text-6xl">But my friends call me Vicky Liu.</h3>
+        <!-- <h3 class="text-6xl">idk</h3> -->
+        <div class="blobs1"><img src="blob1.svg" alt="" srcset="" /></div>
       </div>
-      <div class="byline text-right absolute">
+      <div class="byline text-right relative">
         <h3 class="text-6xl">I'm</h3>
         <h3 class="text-6xl">a frontend developer</h3>
-        <h3 class="text-6xl">at the <span class="underline">University of Waterloo</span></h3>
+        <h3 class="text-6xl">at the <span class="underline">University of Waterloo.</span></h3>
+        <div class="blobs2"><img src="blob2.svg" alt="" srcset="" /></div>
       </div>
     </div>
+    <canvas id="bg"></canvas>
+    <script src="main.js" type="module"></script>
+    <script src="router.js"></script>
   </body>
 </html>
