@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   mode: 'jit',
-  content: ["./*.html", "./pages/*.html"],
+  content: ["./*.html", "./public/pages/*.html"],
   theme: {
     extend: {},
     fontSize: {
