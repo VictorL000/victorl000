@@ -27,7 +27,7 @@ const indexOut = (callback) => {
 };
 
 const aboutIn = (callback) => {
-  tl.to(modelPivot.rotation, { duration: 0.8, y: -2.1, ease: "power2.out"})
+  tl.to(modelPivot.rotation, { duration: 0.8, y: -2.07, ease: "power2.out"})
     .from(".blobs1", { duration: 0.8, y: "-100%", ease: "power2.out", delay: 0.5 })
     .from(".blobs2", { duration: 0.8, y: "+100%", ease: "power2.out" }, "<")
     .from(".about-container", { duration: 0.5, opacity: "0", ease: "power2.out", onComplete: callback });
