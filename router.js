@@ -1,4 +1,4 @@
-import { inAnims, indexIn, indexOut, pageLoad } from "./anim.js";
+import { inAnims, indexIn, indexOut, pageBGLoad, pageHeadLoad } from "./anim.js";
 
 let firstLoad = true;
 const route = (event) => {
@@ -22,10 +22,13 @@ const handleLocation = async () => {
   document.getElementById("content").innerHTML = html;
   // console.log(path);
   if(firstLoad){
-    firstLoad = false;
-    pageLoad();
+    pageBGLoad();
   }
-  inAnims[path]();
+  inAnims[path](console.log);
+  if(firstLoad){
+    firstLoad = false;
+    pageHeadLoad();
+  }
 }
 
 window.onpopstate = handleLocation;

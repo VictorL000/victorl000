@@ -7,7 +7,6 @@ const scene = new THREE.Scene();
 const FOV_RATIO = -0.02285;
 const FOV_INTERCEPT = 108.5;
 const camera = new THREE.PerspectiveCamera(window.innerWidth * FOV_RATIO + FOV_INTERCEPT, window.innerWidth / window.innerHeight, 0.1, 100);
-console.log(window.innerWidth * FOV_RATIO + FOV_INTERCEPT);
 camera.position.set(0, 14, 0);
 
 const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector("#bg"), alpha: true });
@@ -34,7 +33,6 @@ loader.load("models/computer.glb", function (gltf) {
   model.position.copy(locations["index"]);
   model.rotation.y = 2.6;
   camera.lookAt(20, 3, 0);
-  console.log(model.position);
   gltf.scene.traverse(function (node) {
     if (node.isMesh) {
       node.castShadow = true;
@@ -115,7 +113,7 @@ scene.add(plane);
 
 var pivot = new THREE.Group();
 
-let stars = Array(200).fill().forEach(addStar);
+let stars = Array(80).fill().forEach(addStar);
 scene.add(pivot);
 
 function animate() {
@@ -134,7 +132,7 @@ function addStar() {
 
   const [x, y, z] = Array(3)
     .fill()
-    .map(() => THREE.MathUtils.randFloatSpread(100));
+    .map(() => THREE.MathUtils.randFloat(-20, 50));
   star.position.set(x, y, z);
   pivot.add(star);
 }

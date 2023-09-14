@@ -9,11 +9,25 @@
 }
 
 @font-face {
+  font-family: 'IBMPlexMono';
+  src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
   font-family: 'IBMPlexSans';
   src: url('/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf');
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  font-family: 'IBMPlexSans';
+  src: url('/fonts/IBM_Plex_Sans/IBMPlexSans-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+
 
 html {
   background-image: url("/bg.svg");
@@ -25,12 +39,19 @@ html {
   font-family: 'IBMPlexSans', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
 }
 
-body::after {
-  background: green;
+a {
+  transition: color 0.1s ease-out;
+  transition: transform 0.2s ease-out;
+  display: inline-block;
 }
 
-body {
-  /* overflow: hidden; */
+a:hover {
+  color: #cebbab;
+  -webkit-transform: skewX(-10deg);
+  -moz-transform: skewX(-10deg);
+  -o-transform: skewX(-10deg);
+  transform: skewX(-10deg) translateX(3px);
+
 }
 
 html,
@@ -96,9 +117,11 @@ h6 {
   transition: all 0.1s ease-out;
   text-align: center;
 }
-.fav-container:hover {
+
+.contact-icon:hover {
   transform: scale(1.2);
 }
+
 .tooltiptext {
   opacity: 0;
   color: #fff;
@@ -256,10 +279,10 @@ h6 {
 
 .blobs2.home {
   margin-left: auto;
-  width: 750px;
-  height: 750px;
+  width: 725px;
+  /* height: 550px; */
   top: -220px;
-  left: -83px;
+  left: -93px;
 }
 
 .blobs1.babout {
@@ -298,6 +321,9 @@ img {
   left: calc(32% - 100px);
   background-image: url("/scroll.png");
   border-radius: 50px;
+}
+.email-container {
+  width: 65%;
 }
 
 @-webkit-keyframes grain {
@@ -424,7 +450,8 @@ img {
     display: none;
   }
   .mobile-only-email{
-    display: block
+    display: block;
+    @apply text-4xl;
   }
 }
 @media only screen and (max-width: 500px) {
