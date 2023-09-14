@@ -1,14 +1,14 @@
 <div class="header">
   <a class="text-3xl" href="/" onclick="navigate(event, window.location.pathname, () => {route(event)})">Home</a>
   <a class="text-3xl" href="about" onclick="navigate(event, window.location.pathname, () => {route(event)})">About</a>
-  <a class="text-3xl" href="projects" onclick="route(event)">Projects</a>
-  <a class="text-3xl" href="contact" onclick="route(event)">Contact</a>
+  <a class="text-3xl" href="projects" onclick="navigate(event, window.location.pathname, () => {route(event)})">Projects</a>
+  <a class="text-3xl" href="contact" onclick="navigate(event, window.location.pathname, () => {route(event)})">Contact</a>
 </div>
-<div class="about-container flex flex-col justify-between">
-  <h1 class="text-8xl">About me:</h1>
+<div class="about-container flex flex-col gap-4 justify-between">
+  <h1 class="text-7xl">About me:</h1>
   <p class="text-4xl">
     Hi, I'm Victor Liu, a candidate for a bachelors of Computer Science from the University of
-    Waterloo.
+    Waterloo, a school most known for their Canadian Geese!
   </p>
   <p class="text-4xl">
     I'm a frontend developer with a passion for design. I love making things look pretty. I also
@@ -19,7 +19,8 @@
     <a href="#" class="underline">(check out my shop!)</a> and fish keeper!
   </p>
   <div>
-    <h3 class="text-5xl my-6">A few of my favourite things:</h3>
+    <h2 class="text-6xl">For more information: <a href="#" class="underline">resume.pdf.</a></h2>
+    <!-- <h3 class="text-6xl my-6">A few of my favourite things:</h3>
     <div class="flex gap-8 my-5">
       <div class="fav-container">
         <img src="./react.svg" alt="" />
@@ -27,24 +28,29 @@
       </div>
       <div class="fav-container">
         <img src="./react.svg" alt="" />
+        <span class="tooltiptext">React</span>
       </div>
       <div class="fav-container">
         <img src="./react.svg" alt="" />
+        <span class="tooltiptext">React</span>
       </div>
       <div class="fav-container">
         <img src="./react.svg" alt="" />
+        <span class="tooltiptext">React</span>
       </div>
       <div class="fav-container">
         <img src="./react.svg" alt="" />
+        <span class="tooltiptext">React</span>
       </div>
       <div class="fav-container">
         <img src="./react.svg" alt="" />
+        <span class="tooltiptext">React</span>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
-<div class="blobs1 about"><img src="blob1.svg" alt="" srcset="" /></div>
-<div class="blobs2 about"><img src="blob2.svg" alt="" srcset="" /></div>
+<div class="blobs1 babout"><img src="blob1.svg" alt="" srcset="" /></div>
+<div class="blobs2 babout"><img src="blob2.svg" alt="" srcset="" /></div>
 <div class="footer my-4 opacity-60">
-  <h6>© 2023, Made with &lt;3 using Vanilla.js, Three.js, and GSAP.</h6>
+  <h6>© 2023. Made with &lt;3 using Vanilla.js, Three.js, and GSAP.</h6>
 </div>

@@ -4,7 +4,10 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 console.log("Threejs loaded");
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+const FOV_RATIO = -0.02285;
+const FOV_INTERCEPT = 108.5;
+const camera = new THREE.PerspectiveCamera(window.innerWidth * FOV_RATIO + FOV_INTERCEPT, window.innerWidth / window.innerHeight, 0.1, 100);
+console.log(window.innerWidth * FOV_RATIO + FOV_INTERCEPT);
 camera.position.set(0, 14, 0);
 
 const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector("#bg"), alpha: true });
@@ -17,9 +20,9 @@ const loader = new GLTFLoader();
 
 const locations = {
   index: { x: 20, y: 0, z: 0 },
-  contact: { x: 0, y: 0, z: 20 },
+  about: { x: 0, y: 0, z: 20 },
   projects: { x: -20, y: 0, z: 0 },
-  about: { x: 0, y: 0, z: -20 },
+  contact: { x: 0, y: 0, z: -20 },
 };
 
 let loadedModel;
@@ -44,7 +47,7 @@ loader.load("models/computer.glb", function (gltf) {
 
 loader.load("models/mailbox.glb", function (gltf) {
   const model = gltf.scene;
-  model.scale.set(8, 8, 8);
+  model.scale.set(7, 7, 7);
   model.rotation.y = -1.6;
   model.position.copy(locations["contact"]);
   gltf.scene.traverse(function (node) {
@@ -59,7 +62,7 @@ loader.load("models/goose.glb", function (gltf) {
   const model = gltf.scene;
   model.scale.set(5, 5, 5);
   model.position.copy(locations["about"]);
-  model.rotation.y = Math.PI;
+  model.rotation.y = 0.8;
   gltf.scene.traverse(function (node) {
     if (node.isMesh) {
       node.castShadow = true;
@@ -87,13 +90,17 @@ pointLight.position.set(0, 30, 0);
 pointLight.castShadow = true;
 scene.add(pointLight);
 
+const pointLightMailbox = new THREE.PointLight(0xffffff, 1000);
+pointLightMailbox.position.set(-2, 30, -18);
+scene.add(pointLightMailbox);
+
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
 scene.add(ambientLight);
 
 // const lightHelper = new THREE.PointLightHelper(pointLight);
 // scene.add(lightHelper);
 
-const controls = new OrbitControls(camera, renderer.domElement);
+// const controls = new OrbitControls(camera, renderer.domElement);
 
 const geometry = new THREE.PlaneGeometry(2000, 2000);
 geometry.rotateX(-Math.PI / 2);
@@ -118,7 +125,6 @@ function animate() {
   modelPivot.children.forEach((model) => {
     model.rotation.y += 0.0004;
   })
-  // camera.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), 0.01)
 }
 
 function addStar() {

@@ -1,5 +1,6 @@
 import { inAnims, indexIn, indexOut, pageLoad } from "./anim.js";
 
+let firstLoad = true;
 const route = (event) => {
   // event.preventDefault(); 
   window.history.pushState({}, '', event.target.href);
@@ -19,6 +20,11 @@ const handleLocation = async () => {
   const route = routes[path] ? routes[path] : routes[404];
   const html = await fetch(route).then((data) => data.text());
   document.getElementById("content").innerHTML = html;
+  // console.log(path);
+  if(firstLoad){
+    firstLoad = false;
+    pageLoad();
+  }
   inAnims[path]();
 }
 
@@ -26,4 +32,3 @@ window.onpopstate = handleLocation;
 window.route = route;
 
 handleLocation();
-pageLoad();
