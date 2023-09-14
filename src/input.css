@@ -118,8 +118,11 @@ h6 {
   text-align: center;
 }
 
-.contact-icon:hover {
-  transform: scale(1.2);
+.contact-icon a:hover {
+  -webkit-transform: skewX(-10deg);
+  -moz-transform: skewX(-10deg);
+  -o-transform: skewX(-10deg);
+  transform: skewX(-10deg) translateX(3px) scale(1.2);
 }
 
 .tooltiptext {
