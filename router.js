@@ -22,12 +22,12 @@ const handleLocation = async () => {
   document.getElementById("content").innerHTML = html;
   // console.log(path);
   if(firstLoad){
-    pageBGLoad();
+    pageBGLoad(() => {});
   }
   inAnims[path](console.log);
   if(firstLoad){
     firstLoad = false;
-    pageHeadLoad();
+    pageHeadLoad(() => {});
   }
 }
 

@@ -2,6 +2,8 @@ import * as THREE from "three";
 import gsap from "gsap";
 import {locations, modelPivot} from "./main.js"
 
+const isDesktop = window.innerWidth > 900;
+
 let tl = gsap.timeline();
 let tlLoop = gsap.timeline();
 tlLoop.yoyo(true).repeat(-1);
@@ -11,12 +13,15 @@ const pageHeadLoad = (callback) => {
 }
 
 const pageBGLoad = (callback) => {
-  tl.from("#bg", { duration: 1, scale: 0, ease: "power1.out", onComplete: callback, delay: 0.8 })
+  if(isDesktop)
+    tl.from("#bg", { duration: 1, scale: 0, ease: "power1.out", onComplete: callback, delay: 0.8 });
+  else
+    callback();
 }
 
 const indexIn = (callback) => {
-  tl.to(modelPivot.rotation, { duration: 0.8, y: 0, ease: "power2.out"})
-    .from(".blobs1", { duration: 0.8, y: "-100%", ease: "power2.out"})
+  if(isDesktop) tl.to(modelPivot.rotation, { duration: 0.8, y: 0, ease: "power2.out"});
+  tl.from(".blobs1", { duration: 0.8, y: "-100%", ease: "power2.out"})
     .from(".headline h1, .headline h2, .headline h3", { duration: 0.5, opacity: "0", ease: "power2.out", stagger: 0.2 })
     .from(".blobs2", { duration: 0.8, y: "+100%", ease: "power2.out" }, "<")
     .from(".byline h3", { duration: 0.5, opacity: "0", ease: "power2.out", stagger: 0.2, onComplete: () => {
@@ -35,8 +40,8 @@ const indexOut = (callback) => {
 };
 
 const aboutIn = (callback) => {
-  tl.to(modelPivot.rotation, { duration: 0.8, y: 1.12, ease: "power2.out"})
-    .from(".blobs1", { duration: 0.8, y: "-180%", ease: "power2.out", delay: 0.5 })
+  if(isDesktop)  tl.to(modelPivot.rotation, { duration: 0.8, y: 1.12, ease: "power2.out"});
+  tl.from(".blobs1", { duration: 0.8, y: "-180%", ease: "power2.out", delay: 0.5 })
     .from(".blobs2", { duration: 0.8, y: "+180%", ease: "power2.out" }, "<")
     .from(".about-container", { duration: 0.5, opacity: "0", ease: "power2.out", onComplete: () => {
       enableBlobAnims();
@@ -48,22 +53,22 @@ const aboutIn = (callback) => {
 const aboutOut = (callback) => {
   disableBlobAnims();
   tl.clear();
-  tl.to(".blobs1", { duration: 0.4, y: "-180%", ease: "power2.out"})
-    .to(".blobs2", { duration: 0.4, y: "+180%", ease: "power2.out" }, "<")
+  tl.to(".blobs1", { duration: 0.5, y: "-100%", ease: "power2.out"})
+    .to(".blobs2", { duration: 0.5, y: "+120%", ease: "power2.out" }, "<")
     .to(".about-container", { duration: 0.4, opacity: "0", ease: "power2.out", onComplete: callback });
 };
 
 const contactOut = (callback) => {
   disableBlobAnims();
   tl.clear();
-  tl.to(".blobs1", { duration: 0.4, y: "-180%", ease: "power2.out"})
-    .to(".blobs2", { duration: 0.4, y: "+180%", ease: "power2.out" }, "<")
+  tl.to(".blobs1", { duration: 0.5, y: "-100%", ease: "power2.out"})
+    .to(".blobs2", { duration: 0.5, y: "+120%", ease: "power2.out" }, "<")
     .to(".contact-container", { duration: 0.4, opacity: "0", ease: "power2.out", onComplete: callback });
 }
 
 const contactIn = (callback) => {
-  tl.to(modelPivot.rotation, { duration: 0.8, y: 4.2, ease: "power2.out"})
-    .from(".blobs1", { duration: 0.8, y: "-180%", ease: "power2.out", delay: 0.5 })
+  if(isDesktop) tl.to(modelPivot.rotation, { duration: 0.8, y: 4.2, ease: "power2.out"});
+  tl.from(".blobs1", { duration: 0.8, y: "-180%", ease: "power2.out", delay: 0.5 })
     .from(".blobs2", { duration: 0.8, y: "+180%", ease: "power2.out" }, "<")
     .from(".contact-container", { duration: 0.5, opacity: "0", ease: "power2.out", onComplete: () => {
       enableBlobAnims();
@@ -72,8 +77,8 @@ const contactIn = (callback) => {
 };
 
 const projectsIn = (callback) => {
-  tl.to(modelPivot.rotation, { duration: 0.8, y: 3.77, ease: "power2.out"})
-    .from(".blobs1", { duration: 0.8, y: "-100%", ease: "power2.out"})
+  if(isDesktop) tl.to(modelPivot.rotation, { duration: 0.8, y: 3.77, ease: "power2.out"});
+  tl.from(".blobs1", { duration: 0.8, y: "-100%", ease: "power2.out"})
     .from(".projects > h1", { duration: 0.5, opacity: "0", ease: "power2.out"})
     .from(".project-container", { duration: 0.5, opacity: "0", ease: "power2.out", stagger: 0.1})
     .from(".scroll-reminder", { duration: 0.3, opacity: "0", ease: "power2.out", onComplete: () => {
