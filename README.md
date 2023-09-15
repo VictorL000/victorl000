@@ -10,3 +10,4 @@ I realize it's not the most informative personal website out there, so think of 
 Todo:
 - Really want a loading screen for that extra extra polish.
 - The typography still seems _off_ for some reason...
+- Actually finish my shop and resume.
