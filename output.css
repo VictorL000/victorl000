@@ -878,6 +878,7 @@ h6 {
 .project-img-container {
   aspect-ratio: 4/3;
   max-width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 8px;
   /* height: 300px; */
 }
 
@@ -1018,16 +1019,6 @@ img {
   position: absolute;
   bottom: 25px;
   left: calc(32% - 150px);
-}
-
-.scroll-btn {
-  position: absolute;
-  height: 150px;
-  width: 75px;
-  bottom: 0;
-  left: calc(32% - 100px);
-  background-image: url("/scroll.png");
-  border-radius: 50px;
 }
 
 .email-container {
