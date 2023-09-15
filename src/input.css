@@ -54,6 +54,13 @@ a:hover {
 
 }
 
+.img-a {
+  transition: transform 0.13s ease-out;
+}
+.img-a:hover {
+  transform: scale(1.03) skewX(-2deg) translateY(-5px) translateX(5px);
+}
+
 html,
 body,
 #content {
@@ -157,6 +164,7 @@ h6 {
   margin: clamp(2.5rem, 2.1040723981900453rem + 1.809954751131222vw, 5rem) 0px;
   flex-wrap: wrap;
   justify-content: flex-end;
+  gap: 1.5rem;
 }
 
 .projects {
@@ -164,6 +172,8 @@ h6 {
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  margin-right: -30%;
+  padding-right: 30%;
 }
 
 .project {
@@ -180,7 +190,7 @@ h6 {
 
 .project-img-container {
   aspect-ratio: 4/3;
-  /* min-width: 400px; */
+  max-width: 400px;
   /* height: 300px; */
 }
 
@@ -426,6 +436,9 @@ img {
   }
   .about-container {
     width: 70%;
+  }
+  .scroll-reminder {
+    display: none;
   }
 }
 

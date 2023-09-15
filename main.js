@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-console.log("Threejs loaded");
+// console.log("Threejs loaded");
 const scene = new THREE.Scene();
 const FOV_RATIO = -0.02285;
 const FOV_INTERCEPT = 108.5;

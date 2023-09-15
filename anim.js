@@ -24,6 +24,7 @@ const indexIn = (callback) => {
   tl.from(".blobs1", { duration: 0.8, y: "-100%", ease: "power2.out"})
     .from(".headline h1, .headline h2, .headline h3", { duration: 0.5, opacity: "0", ease: "power2.out", stagger: 0.2 })
     .from(".blobs2", { duration: 0.8, y: "+100%", ease: "power2.out" }, "<")
+    .from(".footer", { duration: 0.5, opacity: "0", ease: "power2.out"}, "<")
     .from(".byline h3", { duration: 0.5, opacity: "0", ease: "power2.out", stagger: 0.2, onComplete: () => {
       enableBlobAnims();
       callback();
@@ -36,6 +37,7 @@ const indexOut = (callback) => {
   tl.to(".headline", { duration: 0.5, y: "-300%", ease: "power2.in" })
     .to(".headline", { duration: 0.5, opacity: "0", ease: "power2.in" }, "<")
     .to(".byline", { duration: 0.5, y: "+300%", ease: "power2.in" })
+    .to(".footer", { duration: 0.5, opacity: "0", ease: "power2.out"}, "<")
     .to(".byline", { duration: 0.5, opacity: "0", ease: "power2.in", onComplete: callback }, "<");
 };
 
@@ -43,6 +45,7 @@ const aboutIn = (callback) => {
   if(isDesktop)  tl.to(modelPivot.rotation, { duration: 0.8, y: 1.12, ease: "power2.out"});
   tl.from(".blobs1", { duration: 0.8, y: "-180%", ease: "power2.out", delay: 0.5 })
     .from(".blobs2", { duration: 0.8, y: "+180%", ease: "power2.out" }, "<")
+    .from(".footer", { duration: 0.5, opacity: "0", ease: "power2.out"}, "<")
     .from(".about-container", { duration: 0.5, opacity: "0", ease: "power2.out", onComplete: () => {
       enableBlobAnims();
       callback();
@@ -55,6 +58,7 @@ const aboutOut = (callback) => {
   tl.clear();
   tl.to(".blobs1", { duration: 0.5, y: "-100%", ease: "power2.out"})
     .to(".blobs2", { duration: 0.5, y: "+120%", ease: "power2.out" }, "<")
+    .to(".footer", { duration: 0.5, opacity: "0", ease: "power2.out"}, "<")
     .to(".about-container", { duration: 0.4, opacity: "0", ease: "power2.out", onComplete: callback });
 };
 
@@ -70,6 +74,8 @@ const contactIn = (callback) => {
   if(isDesktop) tl.to(modelPivot.rotation, { duration: 0.8, y: 4.2, ease: "power2.out"});
   tl.from(".blobs1", { duration: 0.8, y: "-180%", ease: "power2.out", delay: 0.5 })
     .from(".blobs2", { duration: 0.8, y: "+180%", ease: "power2.out" }, "<")
+    .from(".footer", { duration: 0.5, opacity: "0", ease: "power2.out"}, "<")
+    .to(".footer", { duration: 0.5, opacity: "0", ease: "power2.out"}, "<")
     .from(".contact-container", { duration: 0.5, opacity: "0", ease: "power2.out", onComplete: () => {
       enableBlobAnims();
       callback();
@@ -81,6 +87,7 @@ const projectsIn = (callback) => {
   tl.from(".blobs1", { duration: 0.8, y: "-100%", ease: "power2.out"})
     .from(".projects > h1", { duration: 0.5, opacity: "0", ease: "power2.out"})
     .from(".project-container", { duration: 0.5, opacity: "0", ease: "power2.out", stagger: 0.1})
+    .from(".footer", { duration: 0.5, opacity: "0", ease: "power2.out"}, "<")
     .from(".scroll-reminder", { duration: 0.3, opacity: "0", ease: "power2.out", onComplete: () => {
       enableBlobAnims();
       callback();
@@ -91,12 +98,15 @@ const projectsOut = (callback) => {
   disableBlobAnims();
   tl.clear();
   tl.to(".blobs1", { duration: 0.7, y: "-100%", ease: "power2.out"})
-    .to(".project-container", { duration: 0.3, opacity: "0", ease: "power2.out", stagger: 0.05} )
+    .to(".project-container", { duration: 0.3, opacity: "0", ease: "power2.out", stagger: 0.08} )
+    .to(".scroll-reminder", { duration: 0.3, opacity: "0", ease: "power2.out"}, "<")
+    .to(".footer", { duration: 0.5, opacity: "0", ease: "power2.out"}, "<")
     .to(".projects > h1", { duration: 0.3, opacity: "0", ease: "power2.out", onComplete: callback})
 }
 
 const navigate = (event, path, callback) => {
   event.preventDefault();
+  console.log(event.target.href);
   // console.log("navigate from " + path);
   outAnims[path](callback);
 };
