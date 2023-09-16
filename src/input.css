@@ -168,7 +168,7 @@ h6 {
 }
 
 .projects {
-  margin-left: 30%;
+  margin-left: 26%;
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -324,7 +324,7 @@ img {
 .scroll-reminder {
   position: absolute;
   bottom: 25px;
-  left: calc(32% - 150px);
+  left: calc(30% - 150px);
 }
 .email-container {
   width: 65%;
@@ -440,16 +440,16 @@ img {
   }
 }
 
-@media only screen and (max-height: 1000px) {
+/* @media only screen and (max-width: 1000px) {
   .about-container {
     width: 87%;
   }
-}
+} */
 
 @media only screen and (max-height: 875px) {
-  .about-container {
+  /* .about-container {
     width: 100%;
-  }
+  } */
   .contact-heading {
     @apply text-7xl;
   }
@@ -477,6 +477,9 @@ img {
 }
 
 @media only screen and (max-width: 900px) {
+  .about-container {
+    width: 100%;
+  }
   .projects {
     margin-left: 0px;
   }

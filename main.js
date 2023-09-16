@@ -27,7 +27,7 @@ const locations = {
 let loadedModel;
 var modelPivot = new THREE.Group();
 let computer;
-loader.load("models/computer.glb", function (gltf) {
+loader.load("/models/computer.glb", function (gltf) {
   const model = gltf.scene;
   model.scale.set(6, 6, 6);
   model.position.copy(locations["index"]);
@@ -43,7 +43,7 @@ loader.load("models/computer.glb", function (gltf) {
   computer = model;
 });
 
-loader.load("models/mailbox.glb", function (gltf) {
+loader.load("/models/mailbox.glb", function (gltf) {
   const model = gltf.scene;
   model.scale.set(7, 7, 7);
   model.rotation.y = -1.6;
@@ -56,7 +56,7 @@ loader.load("models/mailbox.glb", function (gltf) {
   modelPivot.add(model);
 });
 
-loader.load("models/goose.glb", function (gltf) {
+loader.load("/models/goose.glb", function (gltf) {
   const model = gltf.scene;
   model.scale.set(5, 5, 5);
   model.position.copy(locations["about"]);
@@ -69,7 +69,7 @@ loader.load("models/goose.glb", function (gltf) {
   modelPivot.add(model);
 });
 
-loader.load("models/books.glb", function (gltf) {
+loader.load("/models/books.glb", function (gltf) {
   const model = gltf.scene;
   model.scale.set(1, 1, 1);
   model.position.copy(locations["projects"]);

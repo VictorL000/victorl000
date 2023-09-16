@@ -42,7 +42,7 @@ const indexOut = (callback) => {
 };
 
 const aboutIn = (callback) => {
-  if(isDesktop)  tl.to(modelPivot.rotation, { duration: 0.8, y: 1.12, ease: "power2.out"});
+  if(isDesktop)  tl.to(modelPivot.rotation, { duration: 0.8, y: 1.08, ease: "power2.out"});
   tl.from(".blobs1", { duration: 0.8, y: "-180%", ease: "power2.out", delay: 0.5 })
     .from(".blobs2", { duration: 0.8, y: "+180%", ease: "power2.out" }, "<")
     .from(".footer", { duration: 0.5, opacity: "0", ease: "power2.out"}, "<")
@@ -83,7 +83,7 @@ const contactIn = (callback) => {
 };
 
 const projectsIn = (callback) => {
-  if(isDesktop) tl.to(modelPivot.rotation, { duration: 0.8, y: 3.77, ease: "power2.out"});
+  if(isDesktop) tl.to(modelPivot.rotation, { duration: 0.8, y: 3.86, ease: "power2.out"});
   tl.from(".blobs1", { duration: 0.8, y: "-100%", ease: "power2.out"})
     .from(".projects > h1", { duration: 0.5, opacity: "0", ease: "power2.out"})
     .from(".project-container", { duration: 0.5, opacity: "0", ease: "power2.out", stagger: 0.1})

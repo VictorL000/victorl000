@@ -847,7 +847,7 @@ h6 {
 }
 
 .projects {
-  margin-left: 30%;
+  margin-left: 26%;
   overflow-y: scroll;
   -ms-overflow-style: none;
   /* IE and Edge */
@@ -1014,7 +1014,7 @@ img {
 .scroll-reminder {
   position: absolute;
   bottom: 25px;
-  left: calc(32% - 150px);
+  left: calc(30% - 150px);
 }
 
 .email-container {
@@ -1112,16 +1112,16 @@ img {
   }
 }
 
-@media only screen and (max-height: 1000px) {
+/* @media only screen and (max-width: 1000px) {
   .about-container {
     width: 87%;
   }
-}
+} */
 
 @media only screen and (max-height: 875px) {
-  .about-container {
+  /* .about-container {
     width: 100%;
-  }
+  } */
 
   .contact-heading {
     font-size: clamp(1.875rem, 1.5582579185520362rem + 1.4479638009049773vw, 3.875rem);;
@@ -1156,6 +1156,10 @@ img {
 }
 
 @media only screen and (max-width: 900px) {
+  .about-container {
+    width: 100%;
+  }
+
   .projects {
     margin-left: 0px;
   }
