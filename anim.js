@@ -118,6 +118,7 @@ const inAnims = {
   "/about": aboutIn,
   "/contact": contactIn,
   "/projects": projectsIn,
+  "/projects/": projectsIn,
 };
 
 const outAnims = {
@@ -125,7 +126,8 @@ const outAnims = {
   "/": indexOut,
   "/about": aboutOut,
   "/contact": contactOut,
-  "/projects": projectsOut
+  "/projects": projectsOut,
+  "/projects/": projectsOut
 };
 
 export { indexIn, indexOut, inAnims, outAnims, pageBGLoad, pageHeadLoad };
